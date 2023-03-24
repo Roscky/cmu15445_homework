@@ -1,5 +1,5 @@
-SELECT premiered || '|' || primary_title || '(' || original_title || ')' AS info
+SELECT premiered, primary_title || '(' || original_title || ')'
 FROM titles
-WHERE primary_title != original_title AND genres LIKE '%Action%'
-ORDER BY info DESC
+WHERE primary_title != original_title AND type == 'movie' AND genres LIKE '%Action%'
+ORDER BY premiered DESC, primary_title
 LIMIT 10;
